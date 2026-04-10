@@ -78,6 +78,25 @@ go test ./mysql -run 'TestNormalizeRoleIdentifier|TestRoleIdentifierSQL|TestRole
 gofmt -w .
 ```
 
+## Releasing
+
+Releases are published from Git tags matching `v*` using GitHub Actions and GoReleaser.
+
+Before the first release, configure these GitHub Actions secrets:
+
+- `GPG_PRIVATE_KEY`
+- `GPG_PASSPHRASE`
+- `GPG_FINGERPRINT`
+
+Then create and push a tag:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The release workflow will build provider artifacts, sign checksums, and create a GitHub Release suitable for Terraform Registry ingestion.
+
 ## Using the provider
 
 Until the provider is published to Terraform Registry, local development can use a local build or override installation.
@@ -88,7 +107,7 @@ After publication, the intended usage will look like:
 terraform {
   required_providers {
     tidb = {
-      source  = "mftroy/tidb"
+      source  = "Satan1an/tidb"
       version = "~> 0.1"
     }
   }

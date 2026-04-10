@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-	"github.com/petoju/terraform-provider-mysql/v3/mysql"
+	"github.com/Satan1an/terraform-provider-tidb/mysql"
 )
 
 func main() {
